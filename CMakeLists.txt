@@ -7,6 +7,15 @@ find_package(LLVM REQUIRED )
 find_package(VTK REQUIRED )
 find_package(RapidJSON REQUIRED )
 
+get_cmake_property(_variableNames VARIABLES)
+list (SORT _variableNames)
+foreach (_variableName ${_variableNames})
+    message(STATUS "${_variableName}=${${_variableName}}")
+endforeach()
+
+message(STATUS "Using LLVMConfig.cmake in: ${LLVM_DIR}")
+
+
 message( STATUS "${CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES}")
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
